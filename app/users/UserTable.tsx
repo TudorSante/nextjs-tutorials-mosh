@@ -13,13 +13,13 @@ interface Props {
 }
 
 const UserTable = async ({ sortOrder }: Props) => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/users", {
-    cache: "no-store",
-  });
-  const users: User[] = await res.json();
+  // const res = await fetch("https://jsonplaceholder.typicode.com/users", {
+  //   cache: "no-store",
+  // });
+  // const users: User[] = await res.json();
 
-  // const usersData = await import("./users.json");
-  // const users: User[] = usersData.default;
+  const usersData = await import("./users.json");
+  const users: User[] = usersData.default;
 
   const sortedUsers = sort(users).asc(
     sortOrder === "email" ? (user) => user.email : (user) => user.name
