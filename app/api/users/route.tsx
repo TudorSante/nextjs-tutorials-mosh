@@ -14,3 +14,13 @@ export function GET(request: NextRequest) {
     },
   ]);
 }
+
+export async function POST(request: NextRequest) {
+  const body = await request.json();
+
+  if (!body.name)
+    return NextResponse.json({ error: "Name is required" }, { status: 400 });
+
+  // sending the status 201 implies that the req obj was successfully created => 201 Created
+  return NextResponse.json({ id: 1, name: body.name }, { status: 201 });
+}
