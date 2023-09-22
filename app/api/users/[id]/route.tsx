@@ -30,3 +30,14 @@ export async function PUT(request: NextRequest, { params: { id } }: Props) {
   // Return the updated user
   return NextResponse.json({ id: 1, name: body.name });
 }
+
+export async function DELETE(request: NextRequest, { params: { id } }: Props) {
+  // Fetch the user from db
+  // If not found, return 404
+  // Delte the user
+  // Return 200 as response
+  if (id > 10)
+    return NextResponse.json({ error: "User not found" }, { status: 404 });
+
+  return NextResponse.json({});
+}
