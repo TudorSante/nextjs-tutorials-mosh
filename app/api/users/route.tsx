@@ -21,6 +21,6 @@ export async function POST(request: NextRequest) {
   if (!body.name)
     return NextResponse.json({ error: "Name is required" }, { status: 400 });
 
-  // status 201 - new obj created
+  // sending the status 201 implies that the req obj was successfully created => 201 Created
   return NextResponse.json({ id: 1, name: body.name }, { status: 201 });
 }
